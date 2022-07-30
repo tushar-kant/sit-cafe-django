@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/cart-style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-6">
+            <img src="{{food.image.url}}" alt="{{food.name}}" class="img-fluid">
+
+        </div>
+        <div class="col-md-6">
+            <div class="h3">{{food.name}}</div>
+            <div class="h5">Rs/-{{food.price}}</div>
+            <p class="text-lead">{{food.description}}</p>
+            <p class="text-lead">{{food.secondary_description}}</p>
+            {% if food.is_avaliable %}
+                {% if user.is_authenticated %}
+                    <form action="{% url 'add_to_cart' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="food_id" value="{{food.id}}">
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button> 
+                            <input type="text" class="quantity" id="quantity" name="quantity" value="1" readonly>
+                            <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+                          </div>
+                          <input type="submit" value="Add To cart" class="btn btn-primary btn-sm w-100">
+                    </form>
+                {% else %}
+                 <a href="{% url 'signin' %}" class="btn btn-sm btn-primary w-100">sign in to add</a>
+                {% endif %}
+            {% else %}
+                <p class="text-danger">Currently out of stock</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+7
+{% endblock content %}
+
+{% block extrajs %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock extrajs %}

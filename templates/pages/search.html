@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for product in all_search_results %}
+        <h3>{{product.title}}</h3>
+        <p>{{product.description}}</p>
+        {% comment %} <img src="{{ product.picture.url }}"> {% endcomment %}
+    {% empty %}
+        <h2>No results found</h2>
+    {% endfor %}
+{% endblock %}

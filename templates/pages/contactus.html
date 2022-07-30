@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content  %}
+<h1>contact us</h1>
+<div class="row">
+    <div class="col-6">
+        address
+        <div class="temp">
+            <ul class="list-group">
+                <li class="list-group-item">Silicon institu of technology</li>
+                <li class="list-group-item">bhubaneswar</li>
+                <li class="list-group-item">odisha</li>
+                <li class="list-group-item">754024</li>
+                <li class="list-group-item">near dlf cybercity</li>
+              </ul>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=650&amp;height=300&amp;hl=en&amp;q=silicon institute of technology,bhubaneswar&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.kokagames.com/fnf-friday-night-funkin-mods/">Friday Night Funkin Mods</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:300px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:300px;}.gmap_iframe {height:300px!important;}</style></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <form action="" onsubmit="return validator();">
+            <div class="container"> 
+                
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">number:</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="number">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">suggestion</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" >submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        links
+       
+        <a href="">  <h5>insta</h5></a>
+   
+        <a href="">  <h5>Facebook</h5></a>
+
+        <a href="">  <h5>twitter</h5></a>
+        <a href="">  <h5>whatsapp</h5></a>
+    
+    </div>
+</div>
+{% endblock content  %}
+
+{% block extrajs %}
+    <script src="{% static 'js/form-validator.js' %}"></script>
+{% endblock extrajs %}
